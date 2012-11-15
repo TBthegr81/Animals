@@ -15,6 +15,11 @@ public class Animal {
         howSleepy = sleepyValue;
     }
     
+    // A setter for howHappy
+    public void setHowHappy(int happyValue) {
+        howHappy = happyValue;
+    }
+    
     // Methods to update currentHunger
     public void decreaseHunger(int hungerDecrement) {
         currentHunger -= hungerDecrement;
