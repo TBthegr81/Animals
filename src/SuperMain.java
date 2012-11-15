@@ -9,6 +9,8 @@ public class SuperMain {
 		boolean notfail = true;
 		int duckskilled = 0;
 		
+		Screen s = new Screen();
+		
 		while(notfail)
 		{
 			Lib.write("Write command:");
