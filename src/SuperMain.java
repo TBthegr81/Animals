@@ -18,11 +18,12 @@ public class SuperMain {
 			Scanner sc = new Scanner(System.in);
 			String Command = sc.nextLine();
 			
-			if(Command == "exit")
+			if(Command.equals("exit"))
 			{
-				break;
+				notfail = false;
 			}
 		}
+		System.out.println("Program shuting down");
 	}
 
 }
