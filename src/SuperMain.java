@@ -11,6 +11,8 @@ public class SuperMain {
 		
 		Screen s = new Screen();
 		
+		Lib.write(Lib.getLatestDate("dog"));
+		Lib.addThing("Sleep much", "TB", "dog");
 		while(notfail)
 		{
 			Lib.write("Write command:");
