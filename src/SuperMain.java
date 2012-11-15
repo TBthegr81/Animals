@@ -3,27 +3,36 @@ import java.util.Scanner;
 
 public class SuperMain {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println("Welcome to the animals executable programing application");
+		Lib.write("Welcome to the animals executable programing application");
 		boolean notfail = true;
+		int duckskilled = 0;
 		
 		while(notfail)
 		{
-			System.out.println("Write command:");
+			Lib.write("Write command:");
 			System.out.print(">");
 			Scanner sc = new Scanner(System.in);
 			String Command = sc.nextLine();
 			
-			if(Command.equals("exit"))
+			if(Command.equalsIgnoreCase("exit"))
 			{
 				notfail = false;
 			}
+			else if(Command.equalsIgnoreCase("fight"))
+			{
+				Lib.write("The duck died");
+				duckskilled++;
+				Lib.write("Ducks killed: " + duckskilled);
+			}
+			if(duckskilled >= 5)
+			{
+				Lib.write("Motherduck got rly pissed at you and killed you.\nGame Over!");
+				notfail = false;
+			}
 		}
-		System.out.println("Program shuting down");
+		Lib.write("Program shuting down");
 	}
 
 }
