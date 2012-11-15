@@ -33,7 +33,7 @@ public class Animal {
     public void decreaseSleepy(int sleepyDecrement) {
         howSleepy -= sleepyDecrement;
     }
-        
+     
     public void increaseSleepy(int sleepyIncrement) {
         howSleepy += sleepyIncrement;
     }
@@ -46,5 +46,6 @@ public class Animal {
     public void increaseHappy(int happyIncrement) {
         howHappy += happyIncrement;
     }
+    // A test comment
 
 }
