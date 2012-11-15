@@ -9,7 +9,7 @@ public class SuperMain {
 		boolean notfail = true;
 		int duckskilled = 0;
 		
-		Screen s = new Screen();
+		//Screen s = new Screen();
 		
 		Lib.write(Lib.getLatestDate("dog"));
 		Lib.addThing("Sleep much", "TB", "dog");

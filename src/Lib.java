@@ -85,23 +85,11 @@ public class Lib {
 	    
 	    try {
 	    	con = DriverManager.getConnection(url, user, password);
-	    	pst = con.prepareStatement("INSERT INTO Animals (user, animal, command) VALUES ('" + username + "','" + animalname +"','" + command + "')");
-	        rs = pst.executeQuery();
-	        
-	        java.sql.ResultSetMetaData rsMetaData = rs.getMetaData();
-
-	        int numberOfColumns = rsMetaData.getColumnCount();
-	        //System.out.println("Number of columns:" + numberOfColumns);
-	        while (rs.next())
-	        {
-	        	for(int i =1; i <= numberOfColumns; i++)
-	        	{
-	        		Answer = rs.getString(i);
-	        		//System.out.println(i);
-	        		//System.out.println(rs.getString(i));
-	        		//System.out.println(rsMetaData.getColumnType(i));
-	        	}
-	        }
+	    	pst = con.prepareStatement("INSERT INTO Animals(user,animal,command) VALUES(?,?,?)");
+            pst.setString(1, username);
+            pst.setString(2, animalname);
+            pst.setString(3, command);
+            pst.executeUpdate();
 	        	
 	        } catch (SQLException ex) {
 	                Logger lgr = Logger.getLogger(Lib.class.getName());
