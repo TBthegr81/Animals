@@ -1,5 +1,6 @@
 
 public class Animal {
+/*
 	public void sleep() {
 		System.out.println("Sleeping");
 	}
@@ -20,5 +21,25 @@ public class Animal {
 	public void howHungry() {
 		int howHungry = 100;
 	}
+*/
+	int currentHunger;
+	int howSleepy;
+	int speed;
+	
+	public void setHunger(int hungerValue) {
+        currentHunger = hungerValue;
+    }
+        
+    public void setHowSleepy(int sleepyValue) {
+        howSleepy = sleepyValue;
+    }
+        
+    public void decreaseHunger(int hungerDecrement) {
+        currentHunger -= hungerDecrement;
+    }
+        
+    public void increaseHunger(int hungerIncrement) {
+        currentHunger += hungerIncrement;
+    }
 
 }
