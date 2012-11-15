@@ -1,18 +1,40 @@
 
 public class Animal {
 
-	int currentHunger = 0;
-	int howSleepy = 0;
-	int howHappy = 100;
+	int currentHunger;
+	int howSleepy;
+	int howHappy;
+	
+	Animal()
+	{
+		currentHunger = 0;
+		howSleepy = 0;
+		howHappy = 100;
+	}
 	
 	// A setter for hungerValue
 	public void setHunger(int hungerValue) {
-        currentHunger = hungerValue;
+		if(hungerValue <= 100 && hungerValue >= 1)
+		{
+			currentHunger = hungerValue;
+		}
     }
     
 	// A setter for sleepyValue
     public void setHowSleepy(int sleepyValue) {
-        howSleepy = sleepyValue;
+    	if(sleepyValue <= 100 && sleepyValue >= 1)
+    	{
+    		howSleepy = sleepyValue;
+    	}
+    }
+    
+    // A setter for happyValue
+    public void setHowHappy(int happyValue)
+    {
+    	if(happyValue <= 100 && happyValue >= 1)
+    	{
+    		howHappy = happyValue;
+    	}
     }
     
     // A setter for howHappy
