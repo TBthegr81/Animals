@@ -4,6 +4,7 @@ public class Animal {
 		System.out.println("Sleeping");
 	}
 	
+	// A method named eating
 	public void eating() {
 		System.out.println("Eating");
 	}
