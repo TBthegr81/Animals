@@ -1,10 +1,10 @@
 
 public class Animal {
-	sleep() {
+	public void sleep() {
 		System.out.println("Sleeping");
 	}
 	
-	eating() {
+	public void eating() {
 		System.out.println("Eating");
 	}
 
