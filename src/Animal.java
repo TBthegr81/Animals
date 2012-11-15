@@ -23,5 +23,23 @@ public class Animal {
     public void increaseHunger(int hungerIncrement) {
         currentHunger += hungerIncrement;
     }
+    
+    // Methods to update sleepyValue
+    public void decreaseSleepy(int sleepyDecrement) {
+        howSleepy -= sleepyDecrement;
+    }
+        
+    public void increaseSleepy(int sleepyIncrement) {
+        howSleepy += sleepyIncrement;
+    }
+    
+    // Methods to update howHappy
+    public void decreaseHappy(int happyDecrement) {
+        howHappy -= happyDecrement;
+    }
+        
+    public void increaseHappy(int happyIncrement) {
+        howHappy += happyIncrement;
+    }
 
 }
