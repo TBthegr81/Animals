@@ -1,5 +1,4 @@
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -8,8 +7,6 @@ import java.sql.SQLException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import javax.print.attribute.standard.Media;
 
 
 public class Lib {
@@ -128,13 +125,6 @@ public class Lib {
 	        }
 	    return Answer;
 	}
-	
-	public static void playAudio(String soundfile) throws IOException
-	{
-		soundfile = "/home/tb/workspace/Animals/bin/01-front-line-base.ogg";
-		Media hit = new Media(soundfile);
-		MediaPlayer mediaPlayer = new MediaPlayer(hit);
-		mediaPlayer.play();
-	}
+
 	
 }
