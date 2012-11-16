@@ -3,18 +3,28 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
 public class Lib {
 
-	public static void write(String input)
+	public static void Write(String input)
 	{
 		System.out.println(input);
 	}
 	
-	public static String getLatestDate(String name)
+	public static String Input()
+	{
+		Lib.Write("Write command:");
+		System.out.print(">");
+		Scanner sc = new Scanner(System.in);
+		String Command = sc.nextLine();
+		return Command;
+	}
+	
+	public static String GetLatestDate(String name)
 	{
 		Connection con = null;
 		PreparedStatement pst = null;
@@ -71,7 +81,7 @@ public class Lib {
 	    return Answer;
 	}
 	
-	public static String addThing(String command, String username, String animalname)
+	public static String AddThing(String command, String username, String animalname)
 	{
 		Connection con = null;
 		PreparedStatement pst = null;

@@ -5,38 +5,33 @@ public class SuperMain {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Lib.write("Welcome to the animals executable programing application");
+		Lib.Write("Welcome to the animals executable programing application");
 		boolean notfail = true;
-		int duckskilled = 0;
+		Animal animals[] = new Animal[2];
 		
 		//Screen s = new Screen();
 		
-		Lib.write(Lib.getLatestDate("dog"));
-		Lib.addThing("Sleep much", "TB", "dog");
+		//Lib.write(Lib.getLatestDate("dog"));
+		//Lib.addThing("Sleep much", "TB", "dog");
+		Lib.Write("- Username -");
+		String userName = Lib.Input();
+		Lib.Write("- Animals name -");
+		String animalName = Lib.Input();
+		
 		while(notfail)
 		{
-			Lib.write("Write command:");
-			System.out.print(">");
-			Scanner sc = new Scanner(System.in);
-			String Command = sc.nextLine();
+			String Command = Lib.Input();
 			
 			if(Command.equalsIgnoreCase("exit"))
 			{
 				notfail = false;
 			}
-			else if(Command.equalsIgnoreCase("fight"))
+			else if(Command.equalsIgnoreCase("Feed"))
 			{
-				Lib.write("The duck died");
-				duckskilled++;
-				Lib.write("Ducks killed: " + duckskilled);
-			}
-			if(duckskilled >= 5)
-			{
-				Lib.write("Motherduck got rly pissed at you and killed you.\nGame Over!");
-				notfail = false;
+				animals[0].DecreaseHunger(20);
 			}
 		}
-		Lib.write("Program shuting down");
+		Lib.Write("Program shuting down");
 	}
 
 }

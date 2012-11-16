@@ -13,7 +13,7 @@ public class Animal {
 	}
 	
 	// A setter for hungerValue
-	public void setHunger(int hungerValue)
+	public void SetHunger(int hungerValue)
 	{
 		if(hungerValue <= 100 && hungerValue >= 1)
 		{
@@ -22,7 +22,7 @@ public class Animal {
     }
     
 	// A setter for sleepyValue
-    public void setHowSleepy(int sleepyValue)
+    public void SetHowSleepy(int sleepyValue)
     {
     	if(sleepyValue <= 100 && sleepyValue >= 1)
     	{
@@ -31,7 +31,7 @@ public class Animal {
     }
     
     // A setter for happyValue
-    public void setHowHappy(int happyValue)
+    public void SetHowHappy(int happyValue)
     {
     	if(happyValue <= 100 && happyValue >= 1)
     	{
@@ -39,35 +39,30 @@ public class Animal {
     	}
     }
     
-    // A setter for howHappy
-    public void setHowHappy(int happyValue) {
-        howHappy = happyValue;
-    }
-    
     // Methods to update currentHunger
-    public void decreaseHunger(int hungerDecrement) {
+    public void DecreaseHunger(int hungerDecrement) {
         currentHunger -= hungerDecrement;
     }
         
-    public void increaseHunger(int hungerIncrement) {
+    public void IncreaseHunger(int hungerIncrement) {
         currentHunger += hungerIncrement;
     }
     
     // Methods to update sleepyValue
-    public void decreaseSleepy(int sleepyDecrement) {
+    public void DecreaseSleepy(int sleepyDecrement) {
         howSleepy -= sleepyDecrement;
     }
      
-    public void increaseSleepy(int sleepyIncrement) {
+    public void IncreaseSleepy(int sleepyIncrement) {
         howSleepy += sleepyIncrement;
     }
     
     // Methods to update howHappy
-    public void decreaseHappy(int happyDecrement) {
+    public void DecreaseHappy(int happyDecrement) {
         howHappy -= happyDecrement;
     }
         
-    public void increaseHappy(int happyIncrement) {
+    public void IncreaseHappy(int happyIncrement) {
         howHappy += happyIncrement;
     }
     // A test comment
