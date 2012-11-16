@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -23,6 +24,12 @@ public class SuperMain {
 		s.drawWorld(animals);
 		while(notfail)
 		{
+			try {
+				Lib.playAudio("lol");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			animals.get(0).checkLife();
 			s.drawWorld(animals);
 			Lib.write("Write command");
