@@ -1,17 +1,19 @@
 
 public class Animal {
 
-	int currentHunger;
-	int howSleepy;
-	int howHappy;
-	boolean alive;
+	private int currentHunger;
+	private int howSleepy;
+	private int howHappy;
+	private boolean alive;
+	private String name;
 	
-	Animal()
+	Animal(String newname)
 	{
 		currentHunger = 0;
 		howSleepy = 0;
 		howHappy = 100;
 		alive = true;
+		name = newname;
 	}
 	
 	// A setter for hungerValue
@@ -71,6 +73,7 @@ public class Animal {
     public void kill()
     {
     	alive = false;
+    	Lib.write(name + " died... :(");
     }
 
 }

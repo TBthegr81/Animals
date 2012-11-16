@@ -17,9 +17,11 @@ public class SuperMain {
 		String userName = Lib.input();
 		Lib.write("- Animals name -");
 		String animalName = Lib.input();
-		
+	
+		animals[0] = new Animal(animalName);
 		while(notfail)
 		{
+			Lib.write("Write command");
 			String Command = Lib.input();
 			
 			if(Command.equalsIgnoreCase("exit"))

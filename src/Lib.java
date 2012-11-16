@@ -17,7 +17,6 @@ public class Lib {
 	
 	public static String input()
 	{
-		Lib.write("write command:");
 		System.out.print(">");
 		Scanner sc = new Scanner(System.in);
 		String Command = sc.nextLine();
