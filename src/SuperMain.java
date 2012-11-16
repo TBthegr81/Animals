@@ -9,7 +9,7 @@ public class SuperMain {
 		boolean notfail = true;
 		Animal animals[] = new Animal[2];
 		
-		//Screen s = new Screen();
+		Screen s = new Screen();
 		
 		//Lib.write(Lib.getLatestDate("dog"));
 		//Lib.addThing("Sleep much", "TB", "dog");
@@ -19,6 +19,7 @@ public class SuperMain {
 		String animalName = Lib.input();
 	
 		animals[0] = new Animal(animalName);
+		Lib.write(animals[0].getFullStats());
 		while(notfail)
 		{
 			Lib.write("Write command");
@@ -35,6 +36,10 @@ public class SuperMain {
 			else if(Command.equalsIgnoreCase("kill"))
 			{
 				animals[0].kill();
+			}
+			else if(Command.equalsIgnoreCase("info"))
+			{
+				Lib.write(animals[0].getFullStats());
 			}
 		}
 		Lib.write("Program shuting down");

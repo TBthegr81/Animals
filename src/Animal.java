@@ -6,6 +6,7 @@ public class Animal {
 	private int howHappy;
 	private boolean alive;
 	private String name;
+	private String mood;
 	
 	Animal(String newname)
 	{
@@ -14,6 +15,7 @@ public class Animal {
 		howHappy = 100;
 		alive = true;
 		name = newname;
+		mood = "Happy";
 	}
 	
 	// A setter for hungerValue
@@ -68,6 +70,45 @@ public class Animal {
         
     public void increaseHappy(int happyIncrement) {
         howHappy += happyIncrement;
+    }
+    
+    public String getHappyText()
+    {
+    	if(howHappy < 10)
+        {
+        	mood = "Very angry!";
+        }
+        else if(howHappy >= 10 && howHappy < 30)
+        {
+        	mood = "Kinda angry...";
+        }
+        else if(howHappy >= 30 && howHappy < 50)
+        {
+        	mood = "Not very happy.";
+        }
+        else if(howHappy >= 50 && howHappy < 70)
+        {
+        	mood = "Kinda happy...";
+        }
+        else if(howHappy >= 70 && howHappy < 90)
+        {
+        	mood = "Very happy!";
+        }
+        else if(howHappy == 100)
+        {
+        	mood = "Extacy!";
+        }
+    	return mood;
+    }
+    public String getName()
+    {
+    	return name;
+    }
+    
+    public String getFullStats()
+    {
+    	String text = "Name: " + name + "\nMood: " + mood + "\nSleepylevel: " + howSleepy + "\nHungrylevel: " + howSleepy;
+    	return text;
     }
     
     public void kill()
