@@ -1,24 +1,26 @@
 import java.awt.Color;
-import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.sql.Time;
+import java.awt.Image;
+import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.Timer;
 
 
 public class Screen extends JFrame {
 	
-	private final int WIDTH = 400;
-	private final int HEIGHT = 300;
+	private final static int HEIGHT = 500;
+	private final static int WIDTH = (int) (HEIGHT * 1.7);
 	private Color skyColor = Color.CYAN;
 	private Color groundColor = Color.GREEN;
-	private boolean firstAnimal = false;
-	private boolean secondAnimal = false;
+	private Color textColor = Color.BLACK;
+ 	private ArrayList<Animal> animals;
+	private Image unhappyFace;
+	private Image happyFace;
 	
 	public Screen() {
 		init();
@@ -31,7 +33,23 @@ public class Screen extends JFrame {
 		setLocationRelativeTo(null);
 	    setDefaultCloseOperation(EXIT_ON_CLOSE);
 	    setVisible(true);
+	    setAlwaysOnTop(true);
 	    
+	    // importera bild
+	    importImages();
+	    
+	}
+	
+	private void importImages() {
+	    ImageIcon ii2 = new ImageIcon(this.getClass().getResource("happyFace.png"));
+	    happyFace = ii2.getImage();
+	    ImageIcon ii3 = new ImageIcon(this.getClass().getResource("notHappyFace.png"));
+	    unhappyFace = ii3.getImage();
+	}
+	
+	private Image getBody(Animal a) {
+		ImageIcon ii = new ImageIcon(this.getClass().getResource(a.getType() + ".png"));
+		return ii.getImage();
 	}
 	
 	public void paint(Graphics g) {
@@ -43,25 +61,41 @@ public class Screen extends JFrame {
 		g2.setColor(groundColor);
 		g2.fillRect(0, HEIGHT/2, WIDTH, HEIGHT/2);
 		
-	    if (firstAnimal) {
-	    	// draw ze animal
-	    	if (secondAnimal) {
-	    		// draw ze other animal
-	    	}
-	    }
+		if (animals != null) {
+			int bodyOffset = 10;
+			int yOffset = HEIGHT/4;
+			for (int i = 0; i < animals.size(); i++) {
+				Animal a = animals.get(i);
+				Image body = getBody(a);
+				g2.drawImage(body, bodyOffset, yOffset, this);
+				
+				g2.setColor(textColor);
+				g2.setFont(new Font("Verdana", Font.PLAIN, 14));
+				g2.drawString(a.getName(), bodyOffset + 10, yOffset - 20);
+				
+				int textX = 600;
+				int textY = 50;
+				
+				g2.drawString("Mood: " + a.getHappyText(), textX, textY);
+				g2.drawString("Sleepylevel: " + a.getHowSleepy(), textX, textY + 20);
+				g2.drawString("Hungrylevel: " + a.getCurrentHunger(), textX, textY + 40);
+				g2.drawString("Happylevel: " + a.getHowHappy(), textX, textY + 60);
+				
+				if (a.getHowHappy() > 50) {
+					g2.drawImage(happyFace, bodyOffset, yOffset, this);
+				} else {
+					g2.drawImage(unhappyFace, bodyOffset, yOffset, this);
+				}
+				
+				bodyOffset += body.getWidth(null);
+				yOffset += 80;
+			}
+		}
 	}
 	
-	public void drawWorld(Animal animal1, Animal animal2) {
+	public void drawWorld(ArrayList<Animal> animals) {
+		this.animals = animals;
 		drawBackground();
-		
-		drawAnimal(animal1);
-		firstAnimal = true;
-		if (animal2 != null) {
-			secondAnimal = true;
-			drawAnimal(animal2);
-		} else {
-			secondAnimal = false;
-		}
 		repaint();
 	}
 	
@@ -70,26 +104,21 @@ public class Screen extends JFrame {
 		
 		Calendar calendar = new GregorianCalendar();
 		
-		int minutes = calendar.get(Calendar.MINUTE);
 		int hours = calendar.get(Calendar.HOUR_OF_DAY);
 		
-		if (hours > 6 && hours < 14) {
+		if (hours > 6 && hours < 18) {
 			isDay = true;
 		}
 		
 		if (isDay) {
+			textColor = Color.BLACK;
 			skyColor = Color.CYAN;
 			groundColor = Color.GREEN;
 		} else {
+			textColor = Color.WHITE;
 			skyColor = Color.BLACK;
-			groundColor = Color.MAGENTA;
+			groundColor = Color.DARK_GRAY;
 		}
 	}
-	
-	private void drawAnimal(Animal Animal) {
-		
-	}
-	
-	
 	
 }
