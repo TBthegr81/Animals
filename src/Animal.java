@@ -8,6 +8,7 @@ public class Animal {
 	private boolean alive;
 	private String name;
 	private String mood;
+	private String type;
 	
 	Animal(String newname)
 	{
@@ -17,6 +18,7 @@ public class Animal {
 		alive = true;
 		name = newname;
 		mood = "Happy";
+		type = "Dark_Demon_of_Hell";
 	}
 	
 	// A getter for currentHunger
@@ -120,6 +122,11 @@ public class Animal {
     public String getName()
     {
     	return name;
+    }
+    
+    public String getType()
+    {
+    	return type;
     }
     
     public String getFullStats()
