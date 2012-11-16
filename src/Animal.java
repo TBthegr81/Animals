@@ -1,3 +1,4 @@
+import javax.swing.JOptionPane;
 
 public class Animal {
 
@@ -63,6 +64,7 @@ public class Animal {
     // Methods to update currentHunger
     public void decreaseHunger(int hungerDecrement) {
         currentHunger -= hungerDecrement;
+        Lib.write("Nomnomnom!");
     }
         
     public void increaseHunger(int hungerIncrement) {
@@ -122,7 +124,7 @@ public class Animal {
     
     public String getFullStats()
     {
-    	String text = "Name: " + name + "\nMood: " + mood + "\nSleepylevel: " + howSleepy + "\nHungrylevel: " + howSleepy;
+    	String text = "Name: " + name + "\nMood: " + mood + "\nSleepylevel: " + howSleepy + "\nHungrylevel: " + howSleepy + "\nHappylevel: " + howHappy;
     	return text;
     }
     
@@ -130,6 +132,62 @@ public class Animal {
     {
     	alive = false;
     	Lib.write(name + " died... :(");
+    }
+    
+    public void play()
+    {
+    	increaseSleepy(20);
+    	increaseHappy(20);
+    	increaseHunger(20);
+    	Lib.write(name + ":Yaaay");
+    }
+    
+    public void sleep()
+    {
+    	decreaseSleepy(50);
+    	increaseHappy(10);
+    	increaseHunger(10);
+    	Lib.write(name + ":ZZZzzzz....");
+    }
+    
+    public void checkLife()
+    {
+    	if(currentHunger >= 100)
+    	{
+    		alive = false;
+    		Lib.write("R.I.P " + name);
+    	}
+    	if(howSleepy >= 100)
+    	{
+    		alive = false;
+    		Lib.write("R.I.P " + name);
+    	}
+    	
+    	decreaseHappy(currentHunger / 2);
+    	decreaseHappy(howSleepy / 2);
+    	if(howHappy <= 0)
+    	{
+    		alive = false;
+    		Lib.write("R.I.P " + name);
+    	}
+    }
+
+    // A method that may get a message and present it in a box
+    public void fYIBox(String messege) {
+ 	JOptionPane.showMessageDialog(
+ 	null,
+        messege,
+        "For Your Information Box",
+ 	JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    // A method that may present something someone says in a box
+    public void speaking(String someWords) {
+ 	JOptionPane.showMessageDialog(
+ 	null,
+        someWords,
+        name + " is saying:",
+ 	JOptionPane.INFORMATION_MESSAGE);
     }
 
 }
