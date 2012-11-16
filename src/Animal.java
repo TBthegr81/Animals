@@ -5,6 +5,7 @@ public class Animal {
 	public Animal() {
 		
 	}
+	// Test comment
 
 	private int currentHunger;
 	private int howSleepy;
