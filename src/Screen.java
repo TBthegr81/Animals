@@ -21,6 +21,7 @@ public class Screen extends JFrame {
  	private ArrayList<Animal> animals;
 	private Image unhappyFace;
 	private Image happyFace;
+	private Image fence;
 	
 	public Screen() {
 		init();
@@ -41,6 +42,8 @@ public class Screen extends JFrame {
 	}
 	
 	private void importImages() {
+		ImageIcon ii = new ImageIcon(this.getClass().getResource("fence.png"));
+		fence = ii.getImage();
 	    ImageIcon ii2 = new ImageIcon(this.getClass().getResource("happyFace.png"));
 	    happyFace = ii2.getImage();
 	    ImageIcon ii3 = new ImageIcon(this.getClass().getResource("notHappyFace.png"));
@@ -60,6 +63,8 @@ public class Screen extends JFrame {
 		
 		g2.setColor(groundColor);
 		g2.fillRect(0, HEIGHT/2, WIDTH, HEIGHT/2);
+		
+		g2.drawImage(fence, 0, HEIGHT/3, this);
 		
 		if (animals != null) {
 			int bodyOffset = 10;
