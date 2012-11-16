@@ -4,16 +4,18 @@ public class Animal {
 	int currentHunger;
 	int howSleepy;
 	int howHappy;
+	boolean alive;
 	
 	Animal()
 	{
 		currentHunger = 0;
 		howSleepy = 0;
 		howHappy = 100;
+		alive = true;
 	}
 	
 	// A setter for hungerValue
-	public void SetHunger(int hungerValue)
+	public void setHunger(int hungerValue)
 	{
 		if(hungerValue <= 100 && hungerValue >= 1)
 		{
@@ -22,7 +24,7 @@ public class Animal {
     }
     
 	// A setter for sleepyValue
-    public void SetHowSleepy(int sleepyValue)
+    public void setHowSleepy(int sleepyValue)
     {
     	if(sleepyValue <= 100 && sleepyValue >= 1)
     	{
@@ -31,7 +33,7 @@ public class Animal {
     }
     
     // A setter for happyValue
-    public void SetHowHappy(int happyValue)
+    public void setHowHappy(int happyValue)
     {
     	if(happyValue <= 100 && happyValue >= 1)
     	{
@@ -40,31 +42,35 @@ public class Animal {
     }
     
     // Methods to update currentHunger
-    public void DecreaseHunger(int hungerDecrement) {
+    public void decreaseHunger(int hungerDecrement) {
         currentHunger -= hungerDecrement;
     }
         
-    public void IncreaseHunger(int hungerIncrement) {
+    public void increaseHunger(int hungerIncrement) {
         currentHunger += hungerIncrement;
     }
     
     // Methods to update sleepyValue
-    public void DecreaseSleepy(int sleepyDecrement) {
+    public void decreaseSleepy(int sleepyDecrement) {
         howSleepy -= sleepyDecrement;
     }
      
-    public void IncreaseSleepy(int sleepyIncrement) {
+    public void increaseSleepy(int sleepyIncrement) {
         howSleepy += sleepyIncrement;
     }
     
     // Methods to update howHappy
-    public void DecreaseHappy(int happyDecrement) {
+    public void decreaseHappy(int happyDecrement) {
         howHappy -= happyDecrement;
     }
         
-    public void IncreaseHappy(int happyIncrement) {
+    public void increaseHappy(int happyIncrement) {
         howHappy += happyIncrement;
     }
-    // A test comment
+    
+    public void kill()
+    {
+    	alive = false;
+    }
 
 }

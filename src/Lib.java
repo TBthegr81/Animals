@@ -10,21 +10,21 @@ import java.util.logging.Logger;
 
 public class Lib {
 
-	public static void Write(String input)
+	public static void write(String input)
 	{
 		System.out.println(input);
 	}
 	
-	public static String Input()
+	public static String input()
 	{
-		Lib.Write("Write command:");
+		Lib.write("write command:");
 		System.out.print(">");
 		Scanner sc = new Scanner(System.in);
 		String Command = sc.nextLine();
 		return Command;
 	}
 	
-	public static String GetLatestDate(String name)
+	public static String getLatestDate(String name)
 	{
 		Connection con = null;
 		PreparedStatement pst = null;
@@ -81,7 +81,7 @@ public class Lib {
 	    return Answer;
 	}
 	
-	public static String AddThing(String command, String username, String animalname)
+	public static String addThing(String command, String username, String animalname)
 	{
 		Connection con = null;
 		PreparedStatement pst = null;

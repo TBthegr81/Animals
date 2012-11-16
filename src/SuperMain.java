@@ -5,7 +5,7 @@ public class SuperMain {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Lib.Write("Welcome to the animals executable programing application");
+		Lib.write("Welcome to the animals executable programing application");
 		boolean notfail = true;
 		Animal animals[] = new Animal[2];
 		
@@ -13,14 +13,14 @@ public class SuperMain {
 		
 		//Lib.write(Lib.getLatestDate("dog"));
 		//Lib.addThing("Sleep much", "TB", "dog");
-		Lib.Write("- Username -");
-		String userName = Lib.Input();
-		Lib.Write("- Animals name -");
-		String animalName = Lib.Input();
+		Lib.write("- Username -");
+		String userName = Lib.input();
+		Lib.write("- Animals name -");
+		String animalName = Lib.input();
 		
 		while(notfail)
 		{
-			String Command = Lib.Input();
+			String Command = Lib.input();
 			
 			if(Command.equalsIgnoreCase("exit"))
 			{
@@ -28,10 +28,14 @@ public class SuperMain {
 			}
 			else if(Command.equalsIgnoreCase("Feed"))
 			{
-				animals[0].DecreaseHunger(20);
+				animals[0].decreaseHunger(20);
+			}
+			else if(Command.equalsIgnoreCase("kill"))
+			{
+				animals[0].kill();
 			}
 		}
-		Lib.Write("Program shuting down");
+		Lib.write("Program shuting down");
 	}
 
 }
