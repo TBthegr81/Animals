@@ -52,6 +52,10 @@ public class SuperMain {
 			{
 				animals.get(0).sleep();
 			}
+			else if(Command.equalsIgnoreCase("help"))
+			{
+				Lib.write("Commands: exit, info, play, feed, sleep, kill, help");
+			}
 		}
 		Lib.write("Program shuting down");
 	}
