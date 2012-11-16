@@ -50,9 +50,16 @@ public class Screen extends JFrame {
 	    unhappyFace = ii3.getImage();
 	}
 	
-	private Image getBody(Animal a) {
-		ImageIcon ii = new ImageIcon(this.getClass().getResource(a.getType() + ".png"));
-		return ii.getImage();
+	private ArrayList<Image> getImages(Animal a) {
+		ArrayList<Image> images = new ArrayList<Image>();
+		// body
+		ImageIcon ii = new ImageIcon(this.getClass().getResource(a.getType() + " " + a.getState() + ".png"));
+		images.add(ii.getImage());
+		// head
+		ImageIcon ii2 = new ImageIcon(this.getClass().getResource(a.getType() + "_head " + a.getState() + ".png"));
+		images.add(ii2.getImage());
+		
+		return images;
 	}
 	
 	public void paint(Graphics g) {
@@ -71,8 +78,8 @@ public class Screen extends JFrame {
 			int yOffset = HEIGHT/4;
 			for (int i = 0; i < animals.size(); i++) {
 				Animal a = animals.get(i);
-				Image body = getBody(a);
-				g2.drawImage(body, bodyOffset, yOffset, this);
+				ArrayList<Image> images = getImages(a);
+				g2.drawImage(images.get(0), bodyOffset, yOffset, this);
 				
 				g2.setColor(textColor);
 				g2.setFont(new Font("Verdana", Font.PLAIN, 14));
@@ -86,13 +93,15 @@ public class Screen extends JFrame {
 				g2.drawString("Hungrylevel: " + a.getCurrentHunger(), textX, textY + 40);
 				g2.drawString("Happylevel: " + a.getHowHappy(), textX, textY + 60);
 				
+				/*
 				if (a.getHowHappy() > 50) {
 					g2.drawImage(happyFace, bodyOffset, yOffset, this);
 				} else {
 					g2.drawImage(unhappyFace, bodyOffset, yOffset, this);
 				}
+				*/
 				
-				bodyOffset += body.getWidth(null);
+				bodyOffset += images.get(0).getWidth(null);
 				yOffset += 80;
 			}
 		}

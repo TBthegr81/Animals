@@ -18,7 +18,7 @@ public class SuperMain {
 		String animalName = Lib.input();
 		
 		Screen s = new Screen();
-		animals.add(new Animal(animalName));
+		animals.add(new Parrot(animalName));
 		Lib.write(animals.get(0).getFullStats());
 		animals.get(0).setHowHappy(45);
 		s.drawWorld(animals);
