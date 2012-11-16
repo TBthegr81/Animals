@@ -1,4 +1,12 @@
 import javax.swing.JOptionPane;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JColorChooser;
+import javax.swing.JFrame;
 
 public class Animal {
 
@@ -199,6 +207,30 @@ public class Animal {
         someWords,
         name + " is saying:",
  	JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    //
+    public void colorFeature() {
+    	JFrame window01 = new JFrame("Window with a choice option");
+	    window01.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	    final JButton button = new JButton("Please, choose a clolor.");
+
+	    ActionListener actionListener = new ActionListener() {
+	      public void actionPerformed(ActionEvent actionEvent) {
+	        Color initialBackground = button.getBackground();
+	        Color background = JColorChooser.showDialog(null, "Hello! Please choose a color for the button.",
+	            initialBackground);
+	        if (background != null) {
+	          button.setBackground(background);
+	        }
+	      }
+	    };
+	    button.addActionListener(actionListener);
+	    
+	    window01.add(button, BorderLayout.CENTER);
+	    window01.setSize(300, 100);
+	    window01.setVisible(true);
     }
 
 }
