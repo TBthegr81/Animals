@@ -39,6 +39,11 @@ public class Animal {
     	}
     }
     
+    // A setter for howHappy
+    public void setHowHappy(int happyValue) {
+        howHappy = happyValue;
+    }
+    
     // Methods to update currentHunger
     public void decreaseHunger(int hungerDecrement) {
         currentHunger -= hungerDecrement;
@@ -52,7 +57,7 @@ public class Animal {
     public void decreaseSleepy(int sleepyDecrement) {
         howSleepy -= sleepyDecrement;
     }
-        
+     
     public void increaseSleepy(int sleepyIncrement) {
         howSleepy += sleepyIncrement;
     }
@@ -65,5 +70,6 @@ public class Animal {
     public void increaseHappy(int happyIncrement) {
         howHappy += happyIncrement;
     }
+    // A test comment
 
 }
