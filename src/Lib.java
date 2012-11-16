@@ -129,12 +129,4 @@ public class Lib {
 	    return Answer;
 	}
 	
-	public static void playAudio(String soundfile) throws IOException
-	{
-		soundfile = "/home/tb/workspace/Animals/bin/01-front-line-base.ogg";
-		Media hit = new Media(soundfile);
-		MediaPlayer mediaPlayer = new MediaPlayer(hit);
-		mediaPlayer.play();
-	}
-	
 }
