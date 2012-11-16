@@ -13,13 +13,12 @@ import javax.swing.JFrame;
 
 public class Screen extends JFrame {
 	
-	private final int HEIGHT = 500;
-	private final int WIDTH = (int) (500 * 1.7);
+	private final static int HEIGHT = 500;
+	private final static int WIDTH = (int) (HEIGHT * 1.7);
 	private Color skyColor = Color.CYAN;
 	private Color groundColor = Color.GREEN;
 	private Color textColor = Color.BLACK;
  	private ArrayList<Animal> animals;
-	private Image body;
 	private Image unhappyFace;
 	private Image happyFace;
 	
@@ -39,14 +38,6 @@ public class Screen extends JFrame {
 	    // importera bild
 	    importImages();
 	    
-	    //testAnimals();
-	    
-	}
-	
-	private void testAnimals() {
-		animals.add(new Animal("Bosse"));
-		animals.add(new Animal("Pelle"));
-		drawWorld(animals);
 	}
 	
 	private void importImages() {
@@ -74,14 +65,23 @@ public class Screen extends JFrame {
 			int bodyOffset = 10;
 			int yOffset = HEIGHT/4;
 			for (int i = 0; i < animals.size(); i++) {
-				Image body = getBody(animals.get(i));
+				Animal a = animals.get(i);
+				Image body = getBody(a);
 				g2.drawImage(body, bodyOffset, yOffset, this);
 				
 				g2.setColor(textColor);
 				g2.setFont(new Font("Verdana", Font.PLAIN, 14));
-				g2.drawString(animals.get(i).getName(), bodyOffset + 10, yOffset - 20);
+				g2.drawString(a.getName(), bodyOffset + 10, yOffset - 20);
 				
-				if (animals.get(i).getHowHappy() > 50) {
+				int textX = 600;
+				int textY = 50;
+				
+				g2.drawString("Mood: " + a.getHappyText(), textX, textY);
+				g2.drawString("Sleepylevel: " + a.getHowSleepy(), textX, textY + 20);
+				g2.drawString("Hungrylevel: " + a.getCurrentHunger(), textX, textY + 40);
+				g2.drawString("Happylevel: " + a.getHowHappy(), textX, textY + 60);
+				
+				if (a.getHowHappy() > 50) {
 					g2.drawImage(happyFace, bodyOffset, yOffset, this);
 				} else {
 					g2.drawImage(unhappyFace, bodyOffset, yOffset, this);
@@ -95,7 +95,6 @@ public class Screen extends JFrame {
 	
 	public void drawWorld(ArrayList<Animal> animals) {
 		this.animals = animals;
-		
 		drawBackground();
 		repaint();
 	}
@@ -105,7 +104,6 @@ public class Screen extends JFrame {
 		
 		Calendar calendar = new GregorianCalendar();
 		
-		int minutes = calendar.get(Calendar.MINUTE);
 		int hours = calendar.get(Calendar.HOUR_OF_DAY);
 		
 		if (hours > 6 && hours < 18) {
