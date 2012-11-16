@@ -2,6 +2,10 @@ import javax.swing.JOptionPane;
 
 public class Animal {
 
+	public Animal() {
+	    
+	}
+
 	private int currentHunger;
 	private int howSleepy;
 	private int howHappy;
