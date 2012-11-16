@@ -1,16 +1,14 @@
 import java.awt.Color;
-import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
-import java.sql.Time;
+import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.Timer;
 
 
 public class Screen extends JFrame {
@@ -19,7 +17,8 @@ public class Screen extends JFrame {
 	private final int WIDTH = (int) (500 * 1.7);
 	private Color skyColor = Color.CYAN;
 	private Color groundColor = Color.GREEN;
-	private Animal[] animals;
+	private Color textColor = Color.BLACK;
+ 	private ArrayList<Animal> animals;
 	private Image body;
 	private Image unhappyFace;
 	private Image happyFace;
@@ -40,12 +39,13 @@ public class Screen extends JFrame {
 	    // importera bild
 	    importImages();
 	    
-	    testAnimals();
+	    //testAnimals();
 	    
 	}
 	
 	private void testAnimals() {
-		this.animals = new Animal[]{new Animal("pelle"), new Animal("bosse")};
+		animals.add(new Animal("Bosse"));
+		animals.add(new Animal("Pelle"));
 		drawWorld(animals);
 	}
 	
@@ -70,9 +70,14 @@ public class Screen extends JFrame {
 		if (animals != null) {
 			int bodyOffset = 10;
 			int yOffset = HEIGHT/4;
-			for (int i = 0; i < animals.length; i++) {
+			for (int i = 0; i < animals.size(); i++) {
 				g2.drawImage(body, bodyOffset, yOffset, this);
-				if (animals[i].getHowHappy() > 50) {
+				
+				g2.setColor(textColor);
+				g2.setFont(new Font("Verdana", Font.PLAIN, 14));
+				g2.drawString(animals.get(i).getName(), bodyOffset + 10, yOffset - 20);
+				
+				if (animals.get(i).getHowHappy() > 50) {
 					g2.drawImage(happyFace, bodyOffset, yOffset, this);
 				} else {
 					g2.drawImage(unhappyFace, bodyOffset, yOffset, this);
@@ -84,7 +89,7 @@ public class Screen extends JFrame {
 		}
 	}
 	
-	public void drawWorld(Animal[] animals) {
+	public void drawWorld(ArrayList<Animal> animals) {
 		this.animals = animals;
 		
 		drawBackground();
@@ -99,23 +104,19 @@ public class Screen extends JFrame {
 		int minutes = calendar.get(Calendar.MINUTE);
 		int hours = calendar.get(Calendar.HOUR_OF_DAY);
 		
-		if (hours > 6 && hours < 8) {
+		if (hours > 6 && hours < 18) {
 			isDay = true;
 		}
 		
 		if (isDay) {
+			textColor = Color.BLACK;
 			skyColor = Color.CYAN;
 			groundColor = Color.GREEN;
 		} else {
+			textColor = Color.WHITE;
 			skyColor = Color.BLACK;
 			groundColor = Color.DARK_GRAY;
 		}
 	}
-	
-	private void drawAnimal(Animal Animal) {
-		
-	}
-	
-	
 	
 }
