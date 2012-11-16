@@ -14,5 +14,5 @@ public class LadyBug extends Animal {
 	public void fly() {
 		
 	}
-	// Test
+
 }
