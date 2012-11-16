@@ -18,6 +18,21 @@ public class Animal {
 		mood = "Happy";
 	}
 	
+	// A getter for currentHunger
+	public int getCurrentHunger() {
+		return currentHunger;
+	}
+	
+	// A getter for howSleepy
+	public int getHowSleepy() {
+		return howSleepy;
+	}
+	
+	// A getter for howHappy
+	public int getHowHappy() {
+		return howHappy;
+	}
+	
 	// A setter for hungerValue
 	public void setHunger(int hungerValue)
 	{
