@@ -174,11 +174,20 @@ public class Animal {
 
     // A method that may get a message and present it in a box
     public void fYIBox(String messege) {
- 	    JOptionPane.showMessageDialog(
- 	    null,
+ 	JOptionPane.showMessageDialog(
+ 	null,
         messege,
         "For Your Information Box",
- 	    JOptionPane.INFORMATION_MESSAGE);
+ 	JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    // A method that may present something someone says in a box
+    public void speaking(String someWords) {
+ 	JOptionPane.showMessageDialog(
+ 	null,
+        someWords,
+        name + " is saying:",
+ 	JOptionPane.INFORMATION_MESSAGE);
     }
 
 }
