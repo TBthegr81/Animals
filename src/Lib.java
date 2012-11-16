@@ -8,8 +8,6 @@ import java.sql.SQLException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 
 import javax.print.attribute.standard.Media;
 
