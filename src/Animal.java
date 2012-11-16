@@ -6,13 +6,13 @@ public class Animal {
 	    
 	}
 
-	private int currentHunger;
-	private int howSleepy;
-	private int howHappy;
-	private boolean alive;
-	private String name;
-	private String mood;
-	private String type;
+	protected int currentHunger;
+	protected int howSleepy;
+	protected int howHappy;
+	protected boolean alive;
+	protected String name;
+	protected String mood;
+	protected String type;
 	
 	Animal(String newname)
 	{
