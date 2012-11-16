@@ -21,6 +21,7 @@ public class Animal {
 	protected String name;
 	protected String mood;
 	protected String type;
+	protected String state;
 	
 	Animal(String newname)
 	{
@@ -31,6 +32,7 @@ public class Animal {
 		name = newname;
 		mood = "Happy";
 		type = "Dark_Demon_of_Hell";
+		state = "idle";
 	}
 	
 	// A getter for currentHunger
@@ -78,6 +80,7 @@ public class Animal {
     // Methods to update currentHunger
     public void decreaseHunger(int hungerDecrement) {
         currentHunger -= hungerDecrement;
+        state = "eating";
         Lib.write("Nomnomnom!");
     }
         
@@ -147,9 +150,15 @@ public class Animal {
     	return text;
     }
     
+    public String getState()
+    {
+    	return state;
+    }
+    
     public void kill()
     {
     	alive = false;
+    	state = "dead";
     	Lib.write(name + " died... :(");
     }
     
