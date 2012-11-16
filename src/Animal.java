@@ -13,7 +13,8 @@ public class Animal {
 	}
 	
 	// A setter for hungerValue
-	public void setHunger(int hungerValue) {
+	public void setHunger(int hungerValue)
+	{
 		if(hungerValue <= 100 && hungerValue >= 1)
 		{
 			currentHunger = hungerValue;
@@ -21,7 +22,8 @@ public class Animal {
     }
     
 	// A setter for sleepyValue
-    public void setHowSleepy(int sleepyValue) {
+    public void setHowSleepy(int sleepyValue)
+    {
     	if(sleepyValue <= 100 && sleepyValue >= 1)
     	{
     		howSleepy = sleepyValue;
