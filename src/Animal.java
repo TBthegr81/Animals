@@ -137,7 +137,7 @@ public class Animal {
     public void play()
     {
     	increaseSleepy(20);
-    	increaseHappy(20);
+    	increaseHappy(50);
     	increaseHunger(20);
     	Lib.write(name + ":Yaaay");
     }

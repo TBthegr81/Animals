@@ -17,12 +17,14 @@ public class SuperMain {
 		String animalName = Lib.input();
 		
 		Screen s = new Screen();
-	
 		animals.add(new Animal(animalName));
 		Lib.write(animals.get(0).getFullStats());
+		animals.get(0).setHowHappy(45);
+		s.drawWorld(animals);
 		while(notfail)
 		{
 			animals.get(0).checkLife();
+			s.drawWorld(animals);
 			Lib.write("Write command");
 			String Command = Lib.input();
 			
