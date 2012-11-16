@@ -1,4 +1,3 @@
-
 public class Animal {
 
 	private int currentHunger;
@@ -130,6 +129,15 @@ public class Animal {
     {
     	alive = false;
     	Lib.write(name + " died... :(");
+    }
+
+    // A method that may get a message and present it in a box
+    public void fYIBox(String messege) {
+ 	    JOptionPane.showMessageDialog(
+ 	    null,
+        messege,
+        "For Your Information Box",
+ 	    JOptionPane.INFORMATION_MESSAGE);
     }
 
 }
