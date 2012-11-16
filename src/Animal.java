@@ -101,5 +101,14 @@ public class Animal {
         "For Your Information Box",
  	    JOptionPane.INFORMATION_MESSAGE);
     }
+    
+    // A method that may present something someone says in a box
+    public void speaking(String someWords) {
+ 	    JOptionPane.showMessageDialog(
+ 	    null,
+        someWords,
+        name + " is saying:",
+ 	    JOptionPane.INFORMATION_MESSAGE);
+    }
 
 }
