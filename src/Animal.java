@@ -1,3 +1,5 @@
+import javax.swing.JOptionPane;
+
 public class Animal {
 
 	private int currentHunger;
@@ -62,6 +64,7 @@ public class Animal {
     // Methods to update currentHunger
     public void decreaseHunger(int hungerDecrement) {
         currentHunger -= hungerDecrement;
+        Lib.write("Nomnomnom!");
     }
         
     public void increaseHunger(int hungerIncrement) {
@@ -121,7 +124,7 @@ public class Animal {
     
     public String getFullStats()
     {
-    	String text = "Name: " + name + "\nMood: " + mood + "\nSleepylevel: " + howSleepy + "\nHungrylevel: " + howSleepy;
+    	String text = "Name: " + name + "\nMood: " + mood + "\nSleepylevel: " + howSleepy + "\nHungrylevel: " + howSleepy + "\nHappylevel: " + howHappy;
     	return text;
     }
     
@@ -139,6 +142,14 @@ public class Animal {
     	Lib.write(name + ":Yaaay");
     }
     
+    public void sleep()
+    {
+    	decreaseSleepy(50);
+    	increaseHappy(10);
+    	increaseHunger(10);
+    	Lib.write(name + ":ZZZzzzz....");
+    }
+    
     public void checkLife()
     {
     	if(currentHunger >= 100)
@@ -147,6 +158,14 @@ public class Animal {
     		Lib.write("R.I.P " + name);
     	}
     	if(howSleepy >= 100)
+    	{
+    		alive = false;
+    		Lib.write("R.I.P " + name);
+    	}
+    	
+    	decreaseHappy(currentHunger / 2);
+    	decreaseHappy(howSleepy / 2);
+    	if(howHappy <= 0)
     	{
     		alive = false;
     		Lib.write("R.I.P " + name);
