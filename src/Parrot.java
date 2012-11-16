@@ -6,8 +6,11 @@ public class Parrot extends Animal {
 		currentHunger = 30;
 		howSleepy = 0;
 		howHappy = 70;
+		alive = true;
+		name = newname;
 		mood = "Kinda happy";
 		type = "parrot";
+		state = "idle";
 	}
 	
 	public void play()
