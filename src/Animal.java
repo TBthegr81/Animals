@@ -131,5 +131,27 @@ public class Animal {
     	alive = false;
     	Lib.write(name + " died... :(");
     }
+    
+    public void play()
+    {
+    	increaseSleepy(20);
+    	increaseHappy(20);
+    	increaseHunger(20);
+    	Lib.write(name + ":Yaaay");
+    }
+    
+    public void checkLife()
+    {
+    	if(currentHunger >= 100)
+    	{
+    		alive = false;
+    		Lib.write("R.I.P " + name);
+    	}
+    	if(howSleepy >= 100)
+    	{
+    		alive = false;
+    		Lib.write("R.I.P " + name);
+    	}
+    }
 
 }

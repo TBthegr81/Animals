@@ -22,6 +22,7 @@ public class SuperMain {
 		Lib.write(animals[0].getFullStats());
 		while(notfail)
 		{
+			animals[0].checkLife();
 			Lib.write("Write command");
 			String Command = Lib.input();
 			
@@ -40,6 +41,10 @@ public class SuperMain {
 			else if(Command.equalsIgnoreCase("info"))
 			{
 				Lib.write(animals[0].getFullStats());
+			}
+			else if(Command.equalsIgnoreCase("play"))
+			{
+				animals[0].play();
 			}
 		}
 		Lib.write("Program shuting down");
