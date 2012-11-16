@@ -93,13 +93,7 @@ public class Screen extends JFrame {
 				g2.drawString("Hungrylevel: " + a.getCurrentHunger(), textX, textY + 40);
 				g2.drawString("Happylevel: " + a.getHowHappy(), textX, textY + 60);
 				
-				/*
-				if (a.getHowHappy() > 50) {
-					g2.drawImage(happyFace, bodyOffset, yOffset, this);
-				} else {
-					g2.drawImage(unhappyFace, bodyOffset, yOffset, this);
-				}
-				*/
+				g2.drawImage(images.get(1), bodyOffset, yOffset, this);
 				
 				bodyOffset += images.get(0).getWidth(null);
 				yOffset += 80;
