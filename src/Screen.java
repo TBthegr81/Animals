@@ -50,12 +50,15 @@ public class Screen extends JFrame {
 	}
 	
 	private void importImages() {
-		ImageIcon ii = new ImageIcon(this.getClass().getResource("defaultBody.png"));
-	    body = ii.getImage();
 	    ImageIcon ii2 = new ImageIcon(this.getClass().getResource("happyFace.png"));
 	    happyFace = ii2.getImage();
 	    ImageIcon ii3 = new ImageIcon(this.getClass().getResource("notHappyFace.png"));
 	    unhappyFace = ii3.getImage();
+	}
+	
+	private Image getBody(Animal a) {
+		ImageIcon ii = new ImageIcon(this.getClass().getResource(a.getType() + ".png"));
+		return ii.getImage();
 	}
 	
 	public void paint(Graphics g) {
@@ -71,6 +74,7 @@ public class Screen extends JFrame {
 			int bodyOffset = 10;
 			int yOffset = HEIGHT/4;
 			for (int i = 0; i < animals.size(); i++) {
+				Image body = getBody(animals.get(i));
 				g2.drawImage(body, bodyOffset, yOffset, this);
 				
 				g2.setColor(textColor);
